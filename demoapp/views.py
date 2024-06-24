@@ -7,4 +7,6 @@ def home(request):
 def demo(request):
     return HttpResponse("Start the functionality of the Application.....")
 def loki(request):
-    return render(request, 'base.html')
+    return render(request, 'base.html', {'age':26})
+def gani(request):
+    return render(request, 'demo.html',{'name': "Lokesh Suri"})

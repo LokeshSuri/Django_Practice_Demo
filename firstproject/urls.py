@@ -19,7 +19,7 @@ from django.urls import path
 from demoapp.views import home,demo
 from django.conf.urls.static import static
 from django.conf import  settings
-from demoapp.views import loki
+from demoapp.views import loki, gani
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,7 @@ urlpatterns = [
     # path("",home,name="home"),
     # path("demo/",demo,name="demo"),
     path('',loki,name="loki"),
+    path('gani/',gani,name="gani"),
 ]
 
 urlpatterns  += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
