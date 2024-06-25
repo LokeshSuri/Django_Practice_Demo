@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from demoapp.views import home,demo
+from demoapp.views import home
 from django.conf.urls.static import static
 from django.conf import  settings
 from demoapp.views import loki, gani
@@ -26,7 +26,7 @@ urlpatterns = [
     # path("",home,name="home"),
     # path("",home,name="home"),
     # path("demo/",demo,name="demo"),
-    path('',loki,name="loki"),
+    path('',home,name="home"),
     path('gani/',gani,name="gani"),
 ]
 
