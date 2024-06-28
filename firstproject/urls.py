@@ -17,17 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from demoapp.views import home
+from demoapp.views import demo
 from django.conf.urls.static import static
-from django.conf import  settings
-from demoapp.views import loki, gani
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path("",home,name="home"),
-    # path("",home,name="home"),
-    # path("demo/",demo,name="demo"),
     path('',home,name="home"),
-    path('gani/',gani,name="gani"),
+    path('demo/',demo,name="demo"),
 ]
 
 urlpatterns  += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

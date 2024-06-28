@@ -1,12 +1,57 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Lokesh Profile-2</title>
-</head>
-<body>
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="well well-sm">
+                <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend class="text-center">Contact Us</legend>
 
-<h1>This is a My Second Dango Project.</h1>
-<h2 class='bg-red'>This is {{name}}, I am A senior software Engineer in Newgen Software Technologies...</h2>
+                        <!-- Name Input -->
+                        <div class="form-group mb-3">
+                            <label class="control-label" for="name">Name</label>
+                            <input id="name" name="name" type="text" placeholder="Type Your Name" class="form-control"/>
+                        </div>
 
-</body>
-</html>
+                        <!-- Email Input -->
+                        <div class="form-group mb-3">
+                            <label class="control-label" for="email">Your E-mail</label>
+                            <input id="email" name="email" type="email" placeholder="Type Your Email" class="form-control"/>
+                        </div>
+
+                        <!-- Message Input -->
+                        <div class="form-group mb-3">
+                            <label class="control-label" for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Please Enter Your message here..." class="form-control"></textarea>
+                        </div>
+
+                        <!-- File Upload -->
+                        <div class="form-group mb-3">
+                            <label class="control-label" for="image">Upload Your Problem Picture</label>
+                            <input type="file" id="image" name="image" class="form-control" required/>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for i in post %}
+<b>Name: {{i.name}}</b></br>
+Email: {{i.email}}</br>
+<i>Message: {{i.message}}<i></br>
+<h6><b>Created at: {{i.created_at}}</b></h6></br>
+<img width="350px" src={{i.image.url}}>
+{% comment %} <video width="400" height="250" controls>
+    <source src={{i.video.url}} type="video/mp4"/>
+</video> {% endcomment %}
+{% endfor %}
+{% endblock content %}
